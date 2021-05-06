@@ -11,7 +11,7 @@ minh.use(
 minh.set("view engine", "hbs");
 hbs.registerPartials(__dirname + "/views/partials");
 var MongoClient = require("mongodb").MongoClient;
-var url = "mongodb+srvsadsad";
+var url = "mongodb+srv://hoang4a:hoang4a@cluster0.qhhzb.mongodb.net/test";
 
 minh.get("/", async (req, res) => {
   let client = await MongoClient.connect(url);
