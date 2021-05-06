@@ -15,5 +15,13 @@
     "mongodb": "^3.6.6"
   },
   "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/minhtvsda/nodejs123.git"
+  },
+  "bugs": {
+    "url": "https://github.com/minhtvsda/nodejs123/issues"
+  },
+  "homepage": "https://github.com/minhtvsda/nodejs123#readme",
   "description": ""
 }
