@@ -1,28 +1,28 @@
 var express = require("express");
-var hoang = express();
+var minh = express();
 var hbs = require("hbs");
 var bodyparse = require("body-parser");
-hoang.use(
+minh.use(
   bodyparse.urlencoded({
     extended: false,
   })
 );
 
-hoang.set("view engine", "hbs");
+minh.set("view engine", "hbs");
 hbs.registerPartials(__dirname + "/views/partials");
 var MongoClient = require("mongodb").MongoClient;
-var url = "mongodb+srv://hoang4a:hoang4a@cluster0.qhhzb.mongodb.net/test";
+var url = "mongodb+srvsadsad";
 
-hoang.get("/", async (req, res) => {
+minh.get("/", async (req, res) => {
   let client = await MongoClient.connect(url);
   let dbo = client.db("ProductDB");
   let results = await dbo.collection("icream").find({}).toArray();
   res.render("index", { model: results });
 });
-hoang.get("/insert", (req, res) => {
+minh.get("/insert", (req, res) => {
   res.render("insert");
 });
-hoang.post("/doInsert", async (req, res) => {
+minh.post("/doInsert", async (req, res) => {
   let nameInput = req.body.txtName;
 
   let priceInput = req.body.txtPrice;
@@ -39,7 +39,7 @@ hoang.post("/doInsert", async (req, res) => {
   await dbo.collection("icream").insertOne(newProduct);
   res.redirect("/");
 });
-hoang.get("/delete", async (req, res) => {
+minh.get("/delete", async (req, res) => {
   //id: string from URL
   let id = req.query.id;
   //convert id from URL to MongoDB' id
@@ -53,5 +53,5 @@ hoang.get("/delete", async (req, res) => {
 });
 
 const PORT = process.env.PORT || 3000;
-hoang.listen(PORT);
+minh.listen(PORT);
 console.log("Server is running");
